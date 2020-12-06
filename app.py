@@ -28,7 +28,7 @@ if uploaded_file is not None:
 	imgs = plt.imread(io.BytesIO(uploaded_file.read()))
 
 	img = np.array(imgs.resize((224, 224)))
-	x = preprocess_input(np.expand_dims(img, 0))
+	x = preprocess_input(img)
 	fmaps = model.predict(x)[0] # 7 x 7 x 2048
 
 	# get predicted class
