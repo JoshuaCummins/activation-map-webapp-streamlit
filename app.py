@@ -57,7 +57,3 @@ if uploaded_file is not None:
 	plt.axis('off')
 	plt.title(classname)
 	plt.show()
-
-	ans = input("Continue? (Y/n)")
-	if ans and ans[0].lower() == 'n':
-		break
