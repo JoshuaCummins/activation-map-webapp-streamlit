@@ -37,14 +37,16 @@ model = tf.keras.models.load_model("model.h5")
 uploaded_file = st.file_uploader("Choose a Image file", type=["png", "jpg", 'jpeg'])
 
 if uploaded_file is not None:
-        img = Image.open(uploaded_file)
 
+    imgs = Image.open(io.BytesIO(uploaded_file.read()))
+
+    
 
 # make a model to get output before flatten
 activation_layer = model.get_layer(index=174)
 
 while True:
-  img = image.load_img(img), target_size=(224, 224)
+  img = image.load_img(imgs, target_size=(224, 224))
   x = preprocess_input(np.expand_dims(img, 0))
   fmaps = model.predict(x)[0] # 7 x 7 x 2048
 
