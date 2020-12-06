@@ -27,7 +27,7 @@ if uploaded_file is not None:
 
 	imgs = Image.open(io.BytesIO(uploaded_file.read()))
 
-	img = np.array(image.resize((224, 224)))
+	img = np.array(imgs.resize((224, 224)))
 	x = preprocess_input(np.expand_dims(img, 0))
 	fmaps = model.predict(x)[0] # 7 x 7 x 2048
 
