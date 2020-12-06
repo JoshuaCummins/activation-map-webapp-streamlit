@@ -25,7 +25,7 @@ uploaded_file = st.file_uploader("Choose a Image file", type=["png", "jpg", 'jpe
 
 if uploaded_file is not None:
 
-	imgs = Image.load_img(io.BytesIO(uploaded_file.read()))
+	imgs = plt.imread(io.BytesIO(uploaded_file.read()))
 
 	img = np.array(imgs.resize((224, 224)))
 	x = preprocess_input(np.expand_dims(img, 0))
