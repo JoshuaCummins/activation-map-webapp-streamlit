@@ -14,7 +14,7 @@ from keras.models import Model
 from keras.applications.resnet50 import ResNet50, preprocess_input, decode_predictions
 from keras.preprocessing import image
 from PIL import Image
-
+import tensorflow as tf
 import numpy as np
 import scipy as sp
 import matplotlib.pyplot as plt
@@ -25,10 +25,6 @@ st.write("Just Upload your Image and Get Predictions on 1000 classes")
 st.write("")
 
 
-gpus = tf.config.experimental.list_physical_devices("GPU")
-
-if gpus:
-    tf.config.experimental.set_memory_growth(gpus[0], True)
 
 # Loading Model
 model = tf.keras.models.load_model("model.h5")
