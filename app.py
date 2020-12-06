@@ -10,11 +10,10 @@ Original file is located at
 # Importing Libraries
 import streamlit as st
 import io
-import keras
-import tensorflow as tf
 from keras.models import Model
 from keras.applications.resnet50 import ResNet50, preprocess_input, decode_predictions
 from keras.preprocessing import image
+from PIL import Image
 
 import numpy as np
 import scipy as sp
@@ -37,14 +36,15 @@ model = tf.keras.models.load_model("model.h5")
 # Upload the image
 uploaded_file = st.file_uploader("Choose a Image file", type=["png", "jpg", 'jpeg'])
 
-
+if uploaded_file is not None:
+        img = Image.open(uploaded_file)
 
 
 # make a model to get output before flatten
 activation_layer = model.get_layer(index=174)
 
 while True:
-  img = image.load_img(uploaded_file), target_size=(224, 224)
+  img = image.load_img(img), target_size=(224, 224)
   x = preprocess_input(np.expand_dims(img, 0))
   fmaps = model.predict(x)[0] # 7 x 7 x 2048
 
