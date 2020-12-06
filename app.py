@@ -44,7 +44,7 @@ uploaded_file = st.file_uploader("Choose a Image file", type=["png", "jpg", 'jpe
 activation_layer = model.get_layer(index=174)
 
 while True:
-  img = image.load_img(uploaded_file), target_size=(224, 224))
+  img = image.load_img(uploaded_file), target_size=(224, 224)
   x = preprocess_input(np.expand_dims(img, 0))
   fmaps = model.predict(x)[0] # 7 x 7 x 2048
 
