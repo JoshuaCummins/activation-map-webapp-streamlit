@@ -23,7 +23,7 @@ model = tf.keras.models.load_model("model.h5")
 # Upload the image
 uploaded_file = st.file_uploader("Choose a Image file", type=["png", "jpg", 'jpeg'])
 
-if uploaded_file is not None:
+if uploaded_file is True:
 
 	imgs = plt.imread(io.BytesIO(uploaded_file.read()))
 
