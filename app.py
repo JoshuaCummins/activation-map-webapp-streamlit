@@ -48,6 +48,9 @@ if uploaded_file is True:
 	# 7 x 32 = 224
 	cam = sp.ndimage.zoom(cam, (32, 32), order=1)
 
+	st.image(cam)
+	st.image(img)
+	
 	plt.subplot(1,2,1)
 	plt.imshow(img, alpha=0.8)
 	plt.axis('off')
