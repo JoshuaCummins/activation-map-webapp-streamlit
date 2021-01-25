@@ -18,7 +18,7 @@ st.write("")
 
 
 # Loading Model
-model = tf.keras.models.load_model("model.h5")
+model = tf.keras.models.load_model("model.h5", compile=False)
 
 # Upload the image
 uploaded_file = st.file_uploader("Choose a Image file", type=["png", "jpg", 'jpeg'])
